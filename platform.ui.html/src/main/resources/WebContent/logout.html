@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Платформа</title>
     <scout:include template="head.html" />
-    <scout:stylesheet src="res/application-all-macro.css" />
+    <scout:stylesheet src="res/scout-login-module.css" />
     <scout:script src="res/jquery-all-macro.js" />
-    <scout:script src="res/application-all-macro.js" />
-    <scout:script src="res/index.js" />
+    <scout:script src="res/scout-login-module.js" />
+    <scout:script src="res/logout.js" />
   </head>
   <body>
     <scout:include template="no-script.html" />
-    <div class="scout" data-partid="1"></div>
+    <scout:message style="tag" key="ui.LogoutSuccessful" key="ui.LoginAgain" />
   </body>
 </html>

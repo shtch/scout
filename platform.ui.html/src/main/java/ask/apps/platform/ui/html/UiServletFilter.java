@@ -40,7 +40,7 @@ public class UiServletFilter implements Filter {
             .withLoginPageInstalled(true));
     
     FormBasedAuthConfig a_fbac = new FormBasedAuthConfig();
-    a_fbac.with403WaitMillis(5000L);
+    a_fbac.withStatus403WaitMillis(5000L);
 //    a_fbac.withCredentialVerifier(credentialVerifier);
 //    a_fbac.withPrincipalProducer(principalProducer);
     m_formBasedAccessController = BEANS.get(FormBasedAccessController.class)
