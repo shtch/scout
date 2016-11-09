@@ -55,12 +55,12 @@ public class DatabaseProperties {
 
     @Override
     protected String getDefaultValue() {
-      return "jdbc:derby:memory:contacts-database";
+      return "jdbc:oracle";
     }
 
     @Override
     public String getKey() {
-      return "contacts.database.jdbc.mapping.name";
+      return "database.jdbc";
     }
     // tag::structure[]
   }
