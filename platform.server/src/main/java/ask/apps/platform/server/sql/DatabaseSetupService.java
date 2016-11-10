@@ -26,7 +26,7 @@ public class DatabaseSetupService implements IDataStoreService {
 
   @PostConstruct
   public void autoCreateDatabase() {
-    if (CONFIG.getPropertyValue(DatabaseProperties.DatabaseAutoCreateProperty.class)) {
+//    if (CONFIG.getPropertyValue(DatabaseProperties.DatabaseAutoCreateProperty.class)) {
       try {
         RunContext context = BEANS.get(SuperUserRunContextProducer.class).produce();
         IRunnable runnable = new IRunnable() {
@@ -43,27 +43,31 @@ public class DatabaseSetupService implements IDataStoreService {
       catch (RuntimeException e) {
         BEANS.get(ExceptionHandler.class).handle(e);
       }
-    }
+//    }
   }
 
+  
   public void createOrganizationTable() {
     if (!getExistingTables().contains("ORGANIZATION")) {
-      SQL.insert(SQLs.ORGANIZATION_CREATE_TABLE);
+    	;
+//      SQL.insert(SQLs.ORGANIZATION_CREATE_TABLE);
       LOG.info("Database table 'ORGANIZATION' created");
-
+/*
       if (CONFIG.getPropertyValue(DatabaseProperties.DatabaseAutoPopulateProperty.class)) {
         SQL.insert(SQLs.ORGANIZATION_INSERT_SAMPLE + SQLs.ORGANIZATION_VALUES_01);
         SQL.insert(SQLs.ORGANIZATION_INSERT_SAMPLE + SQLs.ORGANIZATION_VALUES_02);
         LOG.info("Database table 'ORGANIZATION' populated with sample data");
       }
+*/
     }
   }
 
   public void createPersonTable() {
     if (!getExistingTables().contains("PERSON")) {
-      SQL.insert(SQLs.PERSON_CREATE_TABLE);
+    	;
+//      SQL.insert(SQLs.PERSON_CREATE_TABLE);
       LOG.info("Database table 'PERSON' created");
-
+/*
       if (CONFIG.getPropertyValue(DatabaseProperties.DatabaseAutoPopulateProperty.class)) {
         SQL.insert(SQLs.PERSON_INSERT_SAMPLE + SQLs.PERSON_VALUES_01);
         SQL.insert(SQLs.PERSON_INSERT_SAMPLE + SQLs.PERSON_VALUES_02);
@@ -98,6 +102,7 @@ public class DatabaseSetupService implements IDataStoreService {
         // tag::service[]
         LOG.info("Database table 'PERSON' populated with sample data");
       }
+*/      
     }
   }
 
