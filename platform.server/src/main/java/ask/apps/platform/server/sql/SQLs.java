@@ -16,45 +16,10 @@ public interface SQLs {
   //end::organizationListing[]
 
   String SELECT_TABLE_NAMES = ""
-      + "SELECT   UPPER(tablename) "
-      + "FROM     sys.systables "
+      + "SELECT   UPPER(table_name) "
+      + "FROM     all_tables "
       + "INTO     :result"; // <1>
 
-  String ORGANIZATION_CREATE_TABLE = ""
-      + "CREATE   TABLE ORGANIZATION "
-      + "         (organization_id VARCHAR(64) NOT NULL CONSTRAINT ORGANIZATION_PK PRIMARY KEY,"
-      + "          name VARCHAR(64), "
-      + "          logo_url VARCHAR(512), "
-      + "          url VARCHAR(64), "
-      + "          street VARCHAR(64), "
-      + "          city VARCHAR(64), "
-      + "          country VARCHAR(2), "
-      + "          phone VARCHAR(20), "
-      + "          email VARCHAR(64), "
-      + "          notes VARCHAR(1024)"
-      + "         )";
-
-  String PERSON_CREATE_TABLE = ""
-      + "CREATE   TABLE PERSON "
-      + "         (person_id VARCHAR(64) NOT NULL CONSTRAINT PERSON_PK PRIMARY KEY, "
-      + "          first_name VARCHAR(64), "
-      + "          last_name VARCHAR(64), "
-      + "          picture_url VARCHAR(512), "
-      + "          date_of_birth DATE, "
-      + "          gender VARCHAR(1), "
-      + "          street VARCHAR(64), "
-      + "          city VARCHAR(64), "
-      + "          country VARCHAR(2), "
-      + "          phone VARCHAR(20), "
-      + "          mobile VARCHAR(20), "
-      + "          email VARCHAR(64), "
-      + "          organization_id VARCHAR(64), "
-      + "          position VARCHAR(512), "
-      + "          phone_work VARCHAR(20), "
-      + "          email_work VARCHAR(64), "
-      + "          notes VARCHAR(1024), "
-      + "          CONSTRAINT ORGANIZATION_FK FOREIGN KEY (organization_id) REFERENCES ORGANIZATION (organization_id)"
-      + "         )";
 // end::createDB[]
 
   String PERSON_LOOKUP = ""

@@ -18,36 +18,38 @@ import org.eclipse.scout.rt.platform.config.AbstractSubjectConfigProperty;
 
 // tag::structure[]
 public class DatabaseProperties {
-
+/*
   public static class DatabaseAutoCreateProperty extends AbstractBooleanConfigProperty {
     // defines default value and key
 
     @Override
     protected Boolean getDefaultValue() {
-      return Boolean.TRUE; // <1>
+      return Boolean.FALSE; // <1>
     }
 
     @Override
     public String getKey() {
-      return "contacts.database.autocreate"; // <2>
+      return "platform.database.autocreate"; // <2>
     }
   }
-
+*/
+/*
   public static class DatabaseAutoPopulateProperty extends AbstractBooleanConfigProperty {
     // defines default value and key
     // end::structure[]
 
     @Override
     protected Boolean getDefaultValue() {
-      return Boolean.TRUE;
+      return Boolean.FALSE;
     }
 
     @Override
     public String getKey() {
-      return "contacts.database.autopopulate";
+      return "platform.database.autopopulate";
     }
     // tag::structure[]
   }
+*/
 
   public static class JdbcMappingNameProperty extends AbstractStringConfigProperty {
     // defines default value and key
@@ -55,12 +57,12 @@ public class DatabaseProperties {
 
     @Override
     protected String getDefaultValue() {
-      return "jdbc:oracle";
+      return "jdbc:oracle:thin:@localhost:1521/orcl";
     }
 
     @Override
     public String getKey() {
-      return "database.jdbc";
+      return "platform.database.jdbc.mapping.name";
     }
     // tag::structure[]
   }
@@ -76,9 +78,10 @@ public class DatabaseProperties {
 
     @Override
     public String getKey() {
-      return "contacts.superuser";
+      return "platform.superuser";
     }
     // tag::structure[]
   }
+  
 }
 // end::structure[]

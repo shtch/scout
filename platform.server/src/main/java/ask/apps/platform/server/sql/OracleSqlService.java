@@ -13,7 +13,6 @@ package ask.apps.platform.server.sql;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import ask.apps.platform.server.sql.DatabaseProperties.DatabaseAutoCreateProperty;
 import ask.apps.platform.server.sql.DatabaseProperties.JdbcMappingNameProperty;
 import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
@@ -29,11 +28,6 @@ public class OracleSqlService extends AbstractOracleSqlService {
   protected String getConfiguredJdbcMappingName() {
     String mappingName = CONFIG.getPropertyValue(JdbcMappingNameProperty.class);
 
-    // add create attribute if we need to autocreate the db
-    if (CONFIG.getPropertyValue(DatabaseAutoCreateProperty.class)) {
-      return mappingName + ";create=true"; // <1>
-    }
-
     return mappingName;
   }
   // end::service[]
@@ -48,5 +42,19 @@ public class OracleSqlService extends AbstractOracleSqlService {
     }
   }
 // tag::service[]
+
+@Override
+protected String getConfiguredUsername() {
+
+//	return super.getConfiguredUsername();
+	return "system";
+}
+
+@Override
+protected String getConfiguredPassword() {
+
+//	return super.getConfiguredPassword();
+	return "oracle";
+}
 }
 // end::service[]
