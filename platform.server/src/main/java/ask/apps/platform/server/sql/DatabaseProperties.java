@@ -12,76 +12,96 @@ package ask.apps.platform.server.sql;
 
 import javax.security.auth.Subject;
 
-import org.eclipse.scout.rt.platform.config.AbstractBooleanConfigProperty;
 import org.eclipse.scout.rt.platform.config.AbstractStringConfigProperty;
 import org.eclipse.scout.rt.platform.config.AbstractSubjectConfigProperty;
 
 // tag::structure[]
 public class DatabaseProperties {
-/*
-  public static class DatabaseAutoCreateProperty extends AbstractBooleanConfigProperty {
-    // defines default value and key
+	/*
+	 * public static class DatabaseAutoCreateProperty extends
+	 * AbstractBooleanConfigProperty { // defines default value and key
+	 * 
+	 * @Override protected Boolean getDefaultValue() { return Boolean.FALSE; //
+	 * <1> }
+	 * 
+	 * @Override public String getKey() { return "platform.database.autocreate";
+	 * // <2> } }
+	 */
+	/*
+	 * public static class DatabaseAutoPopulateProperty extends
+	 * AbstractBooleanConfigProperty { // defines default value and key //
+	 * end::structure[]
+	 * 
+	 * @Override protected Boolean getDefaultValue() { return Boolean.FALSE; }
+	 * 
+	 * @Override public String getKey() { return
+	 * "platform.database.autopopulate"; } // tag::structure[] }
+	 */
 
-    @Override
-    protected Boolean getDefaultValue() {
-      return Boolean.FALSE; // <1>
-    }
+	public static class JdbcMappingNameProperty extends AbstractStringConfigProperty {
+		// defines default value and key
+		// end::structure[]
 
-    @Override
-    public String getKey() {
-      return "platform.database.autocreate"; // <2>
-    }
-  }
-*/
-/*
-  public static class DatabaseAutoPopulateProperty extends AbstractBooleanConfigProperty {
-    // defines default value and key
-    // end::structure[]
+		@Override
+		protected String getDefaultValue() {
+			return "jdbc:oracle:thin:@localhost:1521/orcl";
+		}
 
-    @Override
-    protected Boolean getDefaultValue() {
-      return Boolean.FALSE;
-    }
+		@Override
+		public String getKey() {
+			return "platform.database.jdbc.mapping.name";
+		}
+		// tag::structure[]
+	}
 
-    @Override
-    public String getKey() {
-      return "platform.database.autopopulate";
-    }
-    // tag::structure[]
-  }
-*/
+	  public static class SuperUserSubjectProperty extends AbstractSubjectConfigProperty {
+		    // defines default value and key
+		    // end::structure[]
 
-  public static class JdbcMappingNameProperty extends AbstractStringConfigProperty {
-    // defines default value and key
-    // end::structure[]
+		    @Override
+		    protected Subject getDefaultValue() {
+		      return convertToSubject("system");
+		    }
 
-    @Override
-    protected String getDefaultValue() {
-      return "jdbc:oracle:thin:@localhost:1521/orcl";
-    }
+		    @Override
+		    public String getKey() {
+		      return "platform.superuser";
+		    }
+		    // tag::structure[]
+		  }
 
-    @Override
-    public String getKey() {
-      return "platform.database.jdbc.mapping.name";
-    }
-    // tag::structure[]
-  }
 
-  public static class SuperUserSubjectProperty extends AbstractSubjectConfigProperty {
-    // defines default value and key
-    // end::structure[]
+	public static class JdbcUserNameProperty extends AbstractStringConfigProperty {
+		// defines default value and key
+		// end::structure[]
 
-    @Override
-    protected Subject getDefaultValue() {
-      return convertToSubject("system");
-    }
+		@Override
+		protected String getDefaultValue() {
+			return "system";
+		}
 
-    @Override
-    public String getKey() {
-      return "platform.superuser";
-    }
-    // tag::structure[]
-  }
-  
+		@Override
+		public String getKey() {
+			return "platform.database.username";
+		}
+		// tag::structure[]
+	}
+
+	public static class JdbcPasswordProperty extends AbstractStringConfigProperty {
+		// defines default value and key
+		// end::structure[]
+
+		@Override
+		protected String getDefaultValue() {
+			return "oracle";
+		}
+
+		@Override
+		public String getKey() {
+			return "platform.database.password";
+		}
+		// tag::structure[]
+	}
+
 }
 // end::structure[]

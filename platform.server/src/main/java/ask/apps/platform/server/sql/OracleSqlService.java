@@ -10,51 +10,39 @@
  ******************************************************************************/
 package ask.apps.platform.server.sql;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import ask.apps.platform.server.sql.DatabaseProperties.JdbcMappingNameProperty;
-import org.eclipse.scout.rt.platform.BEANS;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.platform.config.CONFIG;
-import org.eclipse.scout.rt.platform.exception.PlatformExceptionTranslator;
 import org.eclipse.scout.rt.server.jdbc.oracle.AbstractOracleSqlService;
+
+import ask.apps.platform.server.sql.DatabaseProperties.JdbcMappingNameProperty;
+import ask.apps.platform.server.sql.DatabaseProperties.JdbcPasswordProperty;
+import ask.apps.platform.server.sql.DatabaseProperties.JdbcUserNameProperty;
 
 @Order(1950)
 // tag::service[]
 public class OracleSqlService extends AbstractOracleSqlService {
 
-  @Override
-  protected String getConfiguredJdbcMappingName() {
-    String mappingName = CONFIG.getPropertyValue(JdbcMappingNameProperty.class);
+	@Override
+	protected String getConfiguredJdbcMappingName() {
+		String mappingName = CONFIG.getPropertyValue(JdbcMappingNameProperty.class);
 
-    return mappingName;
-  }
-  // end::service[]
-
-  public void dropDB() {
-    try {
-      String jdbcMappingName = CONFIG.getPropertyValue(DatabaseProperties.JdbcMappingNameProperty.class);
-      DriverManager.getConnection(jdbcMappingName + ";drop=true");
-    }
-    catch (SQLException e) {
-      BEANS.get(PlatformExceptionTranslator.class).translate(e);
-    }
-  }
+		return mappingName;
+	}
+	// end::service[]
 // tag::service[]
+	@Override
+	protected String getConfiguredUsername() {
+		String userName = CONFIG.getPropertyValue(JdbcUserNameProperty.class);
 
-@Override
-protected String getConfiguredUsername() {
+		return userName;
+	}
+	// end::service[]
+// tag::service[]
+	@Override
+	protected String getConfiguredPassword() {
+		String passWord = CONFIG.getPropertyValue(JdbcPasswordProperty.class);
 
-//	return super.getConfiguredUsername();
-	return "system";
-}
-
-@Override
-protected String getConfiguredPassword() {
-
-//	return super.getConfiguredPassword();
-	return "oracle";
-}
+		return passWord;
+	}
 }
 // end::service[]
