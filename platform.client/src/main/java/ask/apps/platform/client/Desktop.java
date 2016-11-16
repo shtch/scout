@@ -56,6 +56,7 @@ public class Desktop extends AbstractDesktop {
 		for (IOutline outline : getAvailableOutlines()) {
 			if (outline.isEnabled() && outline.isVisible()) {
 				setOutlineInternal(outline);
+				outline.resetOutline();
 				break;
 			}
 		}
@@ -191,6 +192,7 @@ public class Desktop extends AbstractDesktop {
 		}
 	}
 
+/*
 	@Order(3000)
 	public class SettingsOutlineViewButton extends AbstractOutlineViewButton {
 
@@ -212,4 +214,5 @@ public class Desktop extends AbstractDesktop {
 			return IKeyStroke.F10;
 		}
 	}
+*/	
 }
