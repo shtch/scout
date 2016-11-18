@@ -7,6 +7,7 @@ import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.TEXTS;
 
 import ask.apps.platform.client.base.BaseTablePage;
+import ask.apps.platform.client.rininpatient.RINInpatientTablePage;
 import ask.apps.platform.shared.Icons;
 
 /**
@@ -38,7 +39,7 @@ public class WorkOutline extends AbstractOutline {
 	@Override
 	protected IPage<?> execCreateRootPage() {
 
-		return new BaseTablePage();//*/super.execCreateRootPage();
+		return new RINInpatientTablePage();//*/super.execCreateRootPage();
 	}
 
 	@Override

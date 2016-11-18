@@ -52,15 +52,25 @@ public class RINInpatientTablePageData extends AbstractTablePageData {
 	public static class RINInpatientTableRowData extends AbstractTableRowData {
 
 		private static final long serialVersionUID = 1L;
-		public static final String show_id_ = "show_id_";
-		private String m_show_id_;
+		public static final String show_id = "show_id";
+		public static final String full_name = "full_name";
+		private String m_show_id;
+		private String m_full_name;
 
-		public String getShow_id_() {
-			return m_show_id_;
+		public String getShow_id() {
+			return m_show_id;
 		}
 
-		public void setShow_id_(String newShow_id_) {
-			m_show_id_ = newShow_id_;
+		public void setShow_id(String newShow_id) {
+			m_show_id = newShow_id;
+		}
+
+		public String getFull_name() {
+			return m_full_name;
+		}
+
+		public void setFull_name(String newFull_name) {
+			m_full_name = newFull_name;
 		}
 	}
 }

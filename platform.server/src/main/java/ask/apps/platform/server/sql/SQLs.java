@@ -22,6 +22,31 @@ public interface SQLs {
 
 // end::createDB[]
 
+  String RININPATIENT_PAGE_SELECT = ""
+		  + "SELECT "
+//		  + "document_id "
+		  + " show_id "
+		  + ",full_name "
+		  + ",gender "
+		  + ",birthday "
+		  + ",nn "
+		  + ",div_name div_name_plan "
+		  + ",pdate hospdate_plan "
+		  + ",wait_days "
+		  + ",phone "
+		  + ",call_dir "
+		  + ",call_date "
+		  + ",commentary call_commentary "
+		  + "from "
+		  + "docnote.v_pa_adm_info_list pa "
+		  + "where "
+		  + "(1=1) "
+		  + "order by "
+		  + "pa.short_name ";
+  String RININPATIENT_PAGE_SELECT_INTO = ""
+		  + "INTO :{page.show_id}"
+		  + ", :{page.full_name} ";
+  
   String PERSON_LOOKUP = ""
       + "SELECT   person_id, "
       + "         CASE "

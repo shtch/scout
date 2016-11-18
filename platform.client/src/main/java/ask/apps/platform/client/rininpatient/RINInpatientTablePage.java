@@ -24,7 +24,7 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 	@Override
 	protected String getConfiguredTitle() {
 
-		return TEXTS.get("RINInpatiente");
+		return TEXTS.get("RINInpatient");
 	}
 
 	@Override
@@ -39,10 +39,44 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 	}
 
 	public class RINInpatientTable extends AbstractTable {
+		
 
-		public Show_id_Column getShow_id_Column() {
-			return getColumnSet().getColumnByClass(Show_id_Column.class);
+		public Show_idColumn getShow_idColumn() {
+			return getColumnSet().getColumnByClass(Show_idColumn.class);
 		}
+
+
+		@Order(100)
+		public class Show_idColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Show_IDColumnName");
+			}
+		
+			@Override
+			protected int getConfiguredWidth() {
+				return 100;
+			}
+		}
+
+		public Full_nameColumn getFull_nameColumn() {
+			return getColumnSet().getColumnByClass(Full_nameColumn.class);
+		}
+
+
+		@Order(200)
+		public class Full_nameColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Full_NameColumnName");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 200;
+			}
+		}
+
 
 		@Override
 		protected String getConfiguredTitle() {
@@ -174,217 +208,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 		protected boolean getConfiguredTableStatusVisible() {
 			// TODO Auto-generated method stub
 			return super.getConfiguredTableStatusVisible();
-		}
-
-		@Order(1000)
-		public class Show_id_Column extends AbstractStringColumn {
-			@Override
-			protected String getConfiguredHeaderText() {
-				return TEXTS.get("Show_id");
-			}
-
-			@Override
-			protected int getConfiguredWidth() {
-				return 160;
-			}
-
-			@Override
-			protected int getConfiguredMaxLength() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredMaxLength();
-			}
-
-			@Override
-			protected boolean getConfiguredInputMasked() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredInputMasked();
-			}
-
-			@Override
-			protected String getConfiguredDisplayFormat() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredDisplayFormat();
-			}
-
-			@Override
-			protected boolean getConfiguredTextWrap() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredTextWrap();
-			}
-
-			@Override
-			protected String getConfiguredFormat() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredFormat();
-			}
-
-			@Override
-			protected boolean getConfiguredSelectAllOnEdit() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredSelectAllOnEdit();
-			}
-
-			@Override
-			protected boolean getConfiguredUiSortPossible() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredUiSortPossible();
-			}
-
-			@Override
-			protected boolean getConfiguredVisible() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredVisible();
-			}
-
-			@Override
-			protected String getConfiguredHeaderTooltipText() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderTooltipText();
-			}
-
-			@Override
-			protected String getConfiguredHeaderIconId() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderIconId();
-			}
-
-			@Override
-			protected String getConfiguredHeaderCssClass() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderCssClass();
-			}
-
-			@Override
-			protected String getConfiguredHeaderForegroundColor() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderForegroundColor();
-			}
-
-			@Override
-			protected String getConfiguredHeaderBackgroundColor() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderBackgroundColor();
-			}
-
-			@Override
-			protected String getConfiguredHeaderFont() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHeaderFont();
-			}
-
-			@Override
-			protected boolean getConfiguredFixedWidth() {
-				// TODO Auto-generated method stub
-				return true;//super.getConfiguredFixedWidth();
-			}
-
-			@Override
-			protected boolean getConfiguredDisplayable() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredDisplayable();
-			}
-
-			@Override
-			protected boolean getConfiguredPrimaryKey() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredPrimaryKey();
-			}
-
-			@Override
-			protected boolean getConfiguredEditable() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredEditable();
-			}
-
-			@Override
-			protected boolean getConfiguredSummary() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredSummary();
-			}
-
-			@Override
-			protected String getConfiguredCssClass() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredCssClass();
-			}
-
-			@Override
-			protected boolean getConfiguredHtmlEnabled() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHtmlEnabled();
-			}
-
-			@Override
-			protected String getConfiguredForegroundColor() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredForegroundColor();
-			}
-
-			@Override
-			protected String getConfiguredBackgroundColor() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredBackgroundColor();
-			}
-
-			@Override
-			protected String getConfiguredFont() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredFont();
-			}
-
-			@Override
-			protected boolean getConfiguredGrouped() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredGrouped();
-			}
-
-			@Override
-			protected int getConfiguredSortIndex() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredSortIndex();
-			}
-
-			@Override
-			protected double getConfiguredViewOrder() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredViewOrder();
-			}
-
-			@Override
-			protected boolean getConfiguredSortAscending() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredSortAscending();
-			}
-
-			@Override
-			protected boolean getConfiguredAlwaysIncludeSortAtBegin() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredAlwaysIncludeSortAtBegin();
-			}
-
-			@Override
-			protected boolean getConfiguredAlwaysIncludeSortAtEnd() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredAlwaysIncludeSortAtEnd();
-			}
-
-			@Override
-			protected int getConfiguredHorizontalAlignment() {
-				// TODO Auto-generated method stub
-				return super.getConfiguredHorizontalAlignment();
-			}
-
-			@Override
-			protected boolean getConfiguredAutoOptimizeWidth() {
-				// TODO Auto-generated method stub
-				return true;//super.getConfiguredAutoOptimizeWidth();
-			}
-
-			@Override
-			protected boolean getConfiguredMandatory() {
-				// TODO Auto-generated method stub
-				return true;//super.getConfiguredMandatory();
-			}
 		}
 		
 	}
