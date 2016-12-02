@@ -54,8 +54,10 @@ public class PAQueueTablePageData extends AbstractTablePageData {
 		private static final long serialVersionUID = 1L;
 		public static final String document_id = "document_id";
 		public static final String show_id = "show_id";
+		public static final String full_name = "full_name";
 		private String m_document_id;
 		private String m_show_id;
+		private String m_full_name;
 
 		public String getDocument_id() {
 			return m_document_id;
@@ -71,6 +73,14 @@ public class PAQueueTablePageData extends AbstractTablePageData {
 
 		public void setShow_id(String newShow_id) {
 			m_show_id = newShow_id;
+		}
+
+		public String getFull_name() {
+			return m_full_name;
+		}
+
+		public void setFull_name(String newFull_name) {
+			m_full_name = newFull_name;
 		}
 	}
 }

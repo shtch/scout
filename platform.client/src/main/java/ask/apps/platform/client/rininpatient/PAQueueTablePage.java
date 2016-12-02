@@ -18,7 +18,7 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 
 	@Override
 	protected String getConfiguredTitle() {
-		// TODO [oleg] verify translation
+
 		return TEXTS.get("PAQueueTablePage");
 	}
 
@@ -26,6 +26,13 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 	protected void execLoadData(SearchFilter filter) {
 		importPageData(BEANS.get(IPAQueueService.class).getPAQueueTableData(filter));
 	}
+	
+	@Override
+	protected boolean getConfiguredLeaf() {
+		return true;
+	}
+
+
 
 	public class PAQueueTable extends AbstractTable {
 
@@ -33,11 +40,15 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 			return getColumnSet().getColumnByClass(Document_idColumn.class);
 		}
 
+		public Full_nameColumn getFull_NameColumn() {
+			return getColumnSet().getColumnByClass(Full_nameColumn.class);
+		}
+
 		public Show_idColumn getShow_idColumn() {
 			return getColumnSet().getColumnByClass(Show_idColumn.class);
 		}
 
-		@Order(1000)
+		@Order(100)
 		public class Document_idColumn extends AbstractStringColumn {
 			@Override
 			protected String getConfiguredHeaderText() {
@@ -55,16 +66,29 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 			}
 		}
 
-		@Order(2000)
+		@Order(200)
 		public class Show_idColumn extends AbstractStringColumn {
 			@Override
 			protected String getConfiguredHeaderText() {
-				return TEXTS.get("Show_id");
+				return TEXTS.get("Show_idColumnName");
 			}
 
 			@Override
 			protected int getConfiguredWidth() {
 				return 100;
+			}
+		}
+
+		@Order(300)
+		public class Full_nameColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Full_NameColumnNmae");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 200;
 			}
 		}
 		

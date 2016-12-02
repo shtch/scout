@@ -74,7 +74,7 @@ public interface SQLs {
 		  + "order by "
 		  + "pa.short_name ";
   
-  String PAQEUE_PAGE_SELECT_INTO = ""
+  String PAQUEUE_PAGE_SELECT_INTO = ""
 		  + "INTO :{page.show_id}"
 		  + ", :{page.full_name} ";
   
