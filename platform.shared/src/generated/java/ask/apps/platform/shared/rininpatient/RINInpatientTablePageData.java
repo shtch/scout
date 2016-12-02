@@ -52,10 +52,34 @@ public class RINInpatientTablePageData extends AbstractTablePageData {
 	public static class RINInpatientTableRowData extends AbstractTableRowData {
 
 		private static final long serialVersionUID = 1L;
+		public static final String case_history_id = "case_history_id";
 		public static final String show_id = "show_id";
 		public static final String full_name = "full_name";
+		public static final String tempr_m = "tempr_m";
+		public static final String datein = "datein";
+		public static final String description = "description";
+		public static final String name_ward = "name_ward";
+		public static final String doctor = "doctor";
+		public static final String sost = "sost";
+		public static final String dataoperation = "dataoperation";
+		private String m_case_history_id;
 		private String m_show_id;
 		private String m_full_name;
+		private String m_tempr_m;
+		private String m_datein;
+		private String m_description;
+		private String m_name_ward;
+		private String m_doctor;
+		private String m_sost;
+		private String m_dataoperation;
+
+		public String getCase_history_id() {
+			return m_case_history_id;
+		}
+
+		public void setCase_history_id(String newCase_history_id) {
+			m_case_history_id = newCase_history_id;
+		}
 
 		public String getShow_id() {
 			return m_show_id;
@@ -71,6 +95,62 @@ public class RINInpatientTablePageData extends AbstractTablePageData {
 
 		public void setFull_name(String newFull_name) {
 			m_full_name = newFull_name;
+		}
+
+		public String getTempr_m() {
+			return m_tempr_m;
+		}
+
+		public void setTempr_m(String newTempr_m) {
+			m_tempr_m = newTempr_m;
+		}
+
+		public String getDatein() {
+			return m_datein;
+		}
+
+		public void setDatein(String newDatein) {
+			m_datein = newDatein;
+		}
+
+		public String getDescription() {
+			return m_description;
+		}
+
+		public void setDescription(String newDescription) {
+			m_description = newDescription;
+		}
+
+		public String getName_ward() {
+			return m_name_ward;
+		}
+
+		public void setName_ward(String newName_ward) {
+			m_name_ward = newName_ward;
+		}
+
+		public String getDoctor() {
+			return m_doctor;
+		}
+
+		public void setDoctor(String newDoctor) {
+			m_doctor = newDoctor;
+		}
+
+		public String getSost() {
+			return m_sost;
+		}
+
+		public void setSost(String newSost) {
+			m_sost = newSost;
+		}
+
+		public String getDataoperation() {
+			return m_dataoperation;
+		}
+
+		public void setDataoperation(String newDataoperation) {
+			m_dataoperation = newDataoperation;
 		}
 	}
 }

@@ -40,6 +40,36 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 
 	public class RINInpatientTable extends AbstractTable {
 		
+		
+		
+
+		public Case_history_idColumn getCase_history_idColumn() {
+			return getColumnSet().getColumnByClass(Case_history_idColumn.class);
+		}
+
+
+		@Order(50)
+		public class Case_history_idColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Case_history_idColumnName");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+
+			@Override
+			protected boolean getConfiguredVisible() {
+				return false;
+			}
+
+			@Override
+			protected boolean getConfiguredPrimaryKey() {
+				return true;
+			}
+		}
 
 		public Show_idColumn getShow_idColumn() {
 			return getColumnSet().getColumnByClass(Show_idColumn.class);
@@ -55,7 +85,7 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 		
 			@Override
 			protected int getConfiguredWidth() {
-				return 100;
+				return 70;
 			}
 		}
 
@@ -73,10 +103,149 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 
 			@Override
 			protected int getConfiguredWidth() {
-				return 200;
+				return 250;
 			}
 		}
 
+		public Tempr_mColumn getTempr_mColumn() {
+			return getColumnSet().getColumnByClass(Tempr_mColumn.class);
+		}
+
+
+		@Order(300)
+		public class Tempr_mColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Tempr_mColumnNmae");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+
+			@Override
+			public boolean isGroupingActive() {
+				// TODO Auto-generated method stub
+				return super.isGroupingActive();
+			}
+
+			@Override
+			public boolean isRemovable() {
+				// TODO Auto-generated method stub
+				return super.isRemovable();
+			}
+			
+		}
+
+		public DateinColumn getDateinColumn() {
+			return getColumnSet().getColumnByClass(DateinColumn.class);
+		}
+
+
+		@Order(400)
+		public class DateinColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("DateinColumnName");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
+
+		public DescriptionColumn getDescriptionColumn() {
+			return getColumnSet().getColumnByClass(DescriptionColumn.class);
+		}
+
+
+		@Order(500)
+		public class DescriptionColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("DescriptionColumnName");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
+
+		public Name_wardColumn getName_wardColumn() {
+			return getColumnSet().getColumnByClass(Name_wardColumn.class);
+		}
+
+
+		@Order(600)
+		public class Name_wardColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("Name_wardColumn");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
+
+		public DoctorColumn getDoctorColumn() {
+			return getColumnSet().getColumnByClass(DoctorColumn.class);
+		}
+
+
+		@Order(700)
+		public class DoctorColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("DoctorColumnName");
+			}
+		
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
+
+		public SostColumn getSostColumn() {
+			return getColumnSet().getColumnByClass(SostColumn.class);
+		}
+
+
+		@Order(800)
+		public class SostColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("SostColumnName");
+			}
+
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
+
+
+		public DataoperationColumn getDataoperationColumn() {
+			return getColumnSet().getColumnByClass(DataoperationColumn.class);
+		}
+
+
+		@Order(900)
+		public class DataoperationColumn extends AbstractStringColumn {
+			@Override
+			protected String getConfiguredHeaderText() {
+				return TEXTS.get("DataoperationColumnName");
+			}
+		
+			@Override
+			protected int getConfiguredWidth() {
+				return 50;
+			}
+		}
 
 		@Override
 		protected String getConfiguredTitle() {
@@ -140,13 +309,11 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 
 		@Override
 		protected boolean getConfiguredHeaderEnabled() {
-			// TODO Auto-generated method stub
-			return false;//super.getConfiguredHeaderEnabled();
+			return super.getConfiguredHeaderEnabled();
 		}
 
 		@Override
 		protected boolean getConfiguredAutoResizeColumns() {
-			// TODO Auto-generated method stub
 			return true;//super.getConfiguredAutoResizeColumns();
 		}
 

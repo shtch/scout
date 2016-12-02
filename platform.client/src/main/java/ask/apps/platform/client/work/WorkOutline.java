@@ -1,12 +1,14 @@
 package ask.apps.platform.client.work;
 
+import java.util.List;
+
 import org.eclipse.scout.rt.client.ui.desktop.outline.AbstractOutline;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPage;
 import org.eclipse.scout.rt.client.ui.form.IForm;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.TEXTS;
 
-import ask.apps.platform.client.base.BaseTablePage;
+import ask.apps.platform.client.rininpatient.PAQueueTablePage;
 import ask.apps.platform.client.rininpatient.RINInpatientTablePage;
 import ask.apps.platform.shared.Icons;
 
@@ -27,21 +29,23 @@ public class WorkOutline extends AbstractOutline {
 	protected String getConfiguredTitle() {
 		return TEXTS.get("Work");
 	}
-/*
+
 	@Override
 	protected void execCreateChildPages(List<IPage<?>> pageList) {
-		pageList.add(new BaseTablePage());
+//		pageList.add(new BaseTablePage());
 		pageList.add(new RINInpatientTablePage()); 
-		pageList.add(new BaseNodePage());
+		pageList.add(new PAQueueTablePage());
+//		pageList.add(new BaseNodePage());
 
 	}
-*/
+/*
 	@Override
 	protected IPage<?> execCreateRootPage() {
 
-		return new RINInpatientTablePage();//*/super.execCreateRootPage();
+//		return new RINInpatientTablePage();//super.execCreateRootPage();
+		return new PAQueueTablePage();
 	}
-
+*/
 	@Override
 	public IPage<?> getActivePage() {
 		// TODO Auto-generated method stub
