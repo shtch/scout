@@ -1,5 +1,7 @@
 package ask.apps.platform.shared.rininpatient;
 
+import java.util.Date;
+
 import javax.annotation.Generated;
 
 import org.eclipse.scout.rt.shared.data.basic.table.AbstractTableRowData;
@@ -55,9 +57,33 @@ public class PAQueueTablePageData extends AbstractTablePageData {
 		public static final String document_id = "document_id";
 		public static final String show_id = "show_id";
 		public static final String full_name = "full_name";
+		public static final String sex = "sex";
+		public static final String birthyear = "birthyear";
+		public static final String queue_number = "queue_number";
+		public static final String div_name_plan = "div_name_plan";
+		public static final String hosp_date_plan = "hosp_date_plan";
+		public static final String div_name_confirm = "div_name_confirm";
+		public static final String hosp_date_confirm = "hosp_date_confirm";
+		public static final String wait_days = "wait_days";
+		public static final String phone = "phone";
+		public static final String call_dir = "call_dir";
+		public static final String call_date = "call_date";
+		public static final String call_comments = "call_comments";
 		private String m_document_id;
 		private String m_show_id;
 		private String m_full_name;
+		private String m_sex;
+		private Date m_birthyear;
+		private String m_queue_number;
+		private String m_div_name_plan;
+		private Date m_hosp_date_plan;
+		private String m_div_name_confirm;
+		private Date m_hosp_date_confirm;
+		private String m_wait_days;
+		private String m_phone;
+		private String m_call_dir;
+		private Date m_call_date;
+		private String m_call_comments;
 
 		public String getDocument_id() {
 			return m_document_id;
@@ -81,6 +107,102 @@ public class PAQueueTablePageData extends AbstractTablePageData {
 
 		public void setFull_name(String newFull_name) {
 			m_full_name = newFull_name;
+		}
+
+		public String getSex() {
+			return m_sex;
+		}
+
+		public void setSex(String newSex) {
+			m_sex = newSex;
+		}
+
+		public Date getBirthyear() {
+			return m_birthyear;
+		}
+
+		public void setBirthyear(Date newBirthyear) {
+			m_birthyear = newBirthyear;
+		}
+
+		public String getQueue_number() {
+			return m_queue_number;
+		}
+
+		public void setQueue_number(String newQueue_number) {
+			m_queue_number = newQueue_number;
+		}
+
+		public String getDiv_name_plan() {
+			return m_div_name_plan;
+		}
+
+		public void setDiv_name_plan(String newDiv_name_plan) {
+			m_div_name_plan = newDiv_name_plan;
+		}
+
+		public Date getHosp_date_plan() {
+			return m_hosp_date_plan;
+		}
+
+		public void setHosp_date_plan(Date newHosp_date_plan) {
+			m_hosp_date_plan = newHosp_date_plan;
+		}
+
+		public String getDiv_name_confirm() {
+			return m_div_name_confirm;
+		}
+
+		public void setDiv_name_confirm(String newDiv_name_confirm) {
+			m_div_name_confirm = newDiv_name_confirm;
+		}
+
+		public Date getHosp_date_confirm() {
+			return m_hosp_date_confirm;
+		}
+
+		public void setHosp_date_confirm(Date newHosp_date_confirm) {
+			m_hosp_date_confirm = newHosp_date_confirm;
+		}
+
+		public String getWait_days() {
+			return m_wait_days;
+		}
+
+		public void setWait_days(String newWait_days) {
+			m_wait_days = newWait_days;
+		}
+
+		public String getPhone() {
+			return m_phone;
+		}
+
+		public void setPhone(String newPhone) {
+			m_phone = newPhone;
+		}
+
+		public String getCall_dir() {
+			return m_call_dir;
+		}
+
+		public void setCall_dir(String newCall_dir) {
+			m_call_dir = newCall_dir;
+		}
+
+		public Date getCall_date() {
+			return m_call_date;
+		}
+
+		public void setCall_date(Date newCall_date) {
+			m_call_date = newCall_date;
+		}
+
+		public String getCall_comments() {
+			return m_call_comments;
+		}
+
+		public void setCall_comments(String newCall_comments) {
+			m_call_comments = newCall_comments;
 		}
 	}
 }

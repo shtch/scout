@@ -21,6 +21,47 @@ public interface SQLs {
       + "INTO     :result"; // <1>
 
 // end::createDB[]
+  
+  String PAQUEUE_PAGE_SELECT = " "
+    +"select "
+	+"pa.document_id, " 
+	+"pa.show_id, "
+    +"pa.full_name, "
+    +"pa.gender sex, "
+    +"pa.birthday birthyear, "
+    +"pa.nn as queue_number, "
+    +"pa.div_name as div_name_plan, "
+    +"pdate as hosp_date_plan, "
+    +"pa.div_name_fact as div_name_confirm, "
+    +"pa.adate as hosp_date_confirm, "
+    +"pa.wait_days, "
+    +"pa.phone, "
+    +"pa.call_dir, "
+    +"pa.call_date, "
+    +"pa.commentary as call_comments "
+  +"from "
+    +"docnote.v_pa_adm_info_list pa "
+  +"where "
+    +"(1=1) "
+  +"order by "
+    +"pa.short_name "; 
+
+  String PAQUEUE_PAGE_SELECT_INTO = " INTO "
+		    +":{page.document_id} " 
+			+", :{page.show_id} "
+		    +", :{page.full_name} "
+		    +", :{page.sex} "
+		    +", :{page.birthyear} "
+		    +", :{page.queue_number} "
+		    +", :{page.div_name_plan} "
+		    +", :{page.hosp_date_plan} "
+		    +", :{page.div_name_confirm} "
+		    +", :{page.hosp_date_confirm} "
+		    +", :{page.wait_days} "
+		    +", :{page.phone} "
+		    +", :{page.call_dir} "
+		    +", :{page.call_date} "
+		    +", :{page.call_comments} ";
 
   String RININPATIENT_PAGE_SELECT = ""
 		  + "SELECT "
@@ -40,6 +81,7 @@ public interface SQLs {
 		  + "(registry = 1) "
 		  + "order by "
 		  + "show_fullname ";
+  
   String RININPATIENT_PAGE_SELECT_INTO = ""
 		  + " INTO :{page.case_history_id}"
 		  + ", :{page.show_id} "
@@ -52,7 +94,7 @@ public interface SQLs {
 		  + ", :{page.sost} "
 		  + ", :{page.dataoperation} " ;
   
-  String PAQUEUE_PAGE_SELECT = ""
+  String PAQUEUE_PAGE_SELECT2 = ""
 		  + "SELECT "
 //		  + "document_id "
 		  + " show_id "
@@ -74,7 +116,7 @@ public interface SQLs {
 		  + "order by "
 		  + "pa.short_name ";
   
-  String PAQUEUE_PAGE_SELECT_INTO = ""
+  String PAQUEUE_PAGE_SELECT_INTO2 = ""
 		  + "INTO :{page.show_id}"
 		  + ", :{page.full_name} ";
   
