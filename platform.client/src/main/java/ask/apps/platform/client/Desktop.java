@@ -1,26 +1,23 @@
 package ask.apps.platform.client;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import org.eclipse.scout.rt.platform.util.CollectionUtility;
-import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.client.session.ClientSessionProvider;
 import org.eclipse.scout.rt.client.ui.action.keystroke.IKeyStroke;
 import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
-import org.eclipse.scout.rt.client.ui.action.menu.IMenuType;
 import org.eclipse.scout.rt.client.ui.desktop.AbstractDesktop;
 import org.eclipse.scout.rt.client.ui.desktop.bookmark.menu.AbstractBookmarkMenu;
 import org.eclipse.scout.rt.client.ui.desktop.outline.AbstractOutlineViewButton;
 import org.eclipse.scout.rt.client.ui.desktop.outline.IOutline;
+import org.eclipse.scout.rt.client.ui.form.AbstractFormMenu;
 import org.eclipse.scout.rt.client.ui.form.ScoutInfoForm;
-import org.eclipse.scout.rt.shared.AbstractIcons;
-import org.eclipse.scout.rt.shared.ISession;
+import org.eclipse.scout.rt.platform.Order;
+import org.eclipse.scout.rt.platform.context.PropertyMap;
 import org.eclipse.scout.rt.shared.TEXTS;
 
 import ask.apps.platform.client.search.SearchOutline;
-import ask.apps.platform.client.settings.SettingsOutline;
-import ask.apps.platform.client.work.WorkOutline;
+import ask.apps.platform.client.work.MainOutline;
 import ask.apps.platform.shared.Icons;
 
 /**
@@ -30,10 +27,35 @@ import ask.apps.platform.shared.Icons;
  */
 public class Desktop extends AbstractDesktop {
 
+	  @Override
+	  protected String getConfiguredDisplayStyle() {
+	    return resolveDesktopStyle();
+	  }
+	  
+	  /**
+	   * Returns the 'desktopStyle' provided as part of the URL, or the default style otherwise.<br/>
+	   * E.g. http://[host:port]/?desktopStyle=BENCH to start in bench mode.
+	   */
+	  protected String resolveDesktopStyle() {
+	    String desktopStyle = PropertyMap.CURRENT.get().get("desktopStyle");
+	    if (desktopStyle != null) {
+	      return desktopStyle.toLowerCase();
+	    }
+	    else {
+	      return DISPLAY_STYLE_DEFAULT;
+	    }
+	  }
+	  
 	@Override
 	protected List<Class<? extends IOutline>> getConfiguredOutlines() {
-		return CollectionUtility.<Class<? extends IOutline>>arrayList(WorkOutline.class, SearchOutline.class,
-				SettingsOutline.class);
+	    List<Class<? extends IOutline>> outlines = new ArrayList<Class<? extends IOutline>>();
+	    outlines.add(MainOutline.class);
+	    outlines.add(SearchOutline.class);
+	    return outlines;
+		
+		
+//		return CollectionUtility.<Class<? extends IOutline>>arrayList(WorkOutline.class, SearchOutline.class,
+//				SettingsOutline.class);
 	}
 
 	@Override
@@ -42,14 +64,15 @@ public class Desktop extends AbstractDesktop {
 	}
 
 	@Override
+	protected String getConfiguredLogoId() {
+		return Icons.AppLogo;
+	}
+
+/*
+	@Override
 	protected void execGuiAttached() {
 		super.execGuiAttached();
 		selectFirstVisibleOutline();
-	}
-
-	@Override
-	protected String getConfiguredLogoId() {
-		return Icons.AppLogo;
 	}
 
 	protected void selectFirstVisibleOutline() {
@@ -59,6 +82,26 @@ public class Desktop extends AbstractDesktop {
 				outline.resetOutline();
 				break;
 			}
+		}
+	}
+*/
+	
+	@Override
+	protected boolean getConfiguredNavigationHandleVisible() {
+		return false;//super.getConfiguredNavigationHandleVisible();
+	}
+
+	@Order(900)
+	public class InDateMenu extends AbstractFormMenu<InDateMenuForm> {
+		@Override
+		protected String getConfiguredText() {
+			return TEXTS.get("InDateMenuText");
+		}
+
+		@Override
+		protected Class<InDateMenuForm> getConfiguredForm() {
+
+			return InDateMenuForm.class;
 		}
 	}
 
@@ -157,11 +200,11 @@ public class Desktop extends AbstractDesktop {
 	public class WorkOutlineViewButton extends AbstractOutlineViewButton {
 
 		public WorkOutlineViewButton() {
-			this(WorkOutline.class);
+			this(MainOutline.class);
 		}
 
-		protected WorkOutlineViewButton(Class<? extends WorkOutline> outlineClass) {
-			super(Desktop.this, outlineClass);
+		protected WorkOutlineViewButton(Class<? extends MainOutline> outlineClass) {
+			super(Desktop.this, MainOutline.class);
 		}
 
 		@Override

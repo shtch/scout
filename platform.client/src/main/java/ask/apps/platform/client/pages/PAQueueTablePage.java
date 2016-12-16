@@ -1,9 +1,7 @@
-package ask.apps.platform.client.rininpatient;
+package ask.apps.platform.client.pages;
 
 import org.eclipse.scout.rt.client.dto.Data;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractDateColumn;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractDateTimeColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
 import org.eclipse.scout.rt.platform.BEANS;
@@ -11,7 +9,10 @@ import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.TEXTS;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
-import ask.apps.platform.client.rininpatient.PAQueueTablePage.PAQueueTable;
+import ask.apps.platform.client.base.BaseDateColumnDay;
+import ask.apps.platform.client.base.BaseDateColumnDayTime;
+import ask.apps.platform.client.base.BaseDateColumnYear;
+import ask.apps.platform.client.pages.PAQueueTablePage.PAQueueTable;
 import ask.apps.platform.shared.rininpatient.IPAQueueService;
 import ask.apps.platform.shared.rininpatient.PAQueueTablePageData;
 
@@ -166,21 +167,10 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 		}
 
 		@Order(500)
-		public class BirthyearColumn extends AbstractDateColumn {
+		public class BirthyearColumn extends BaseDateColumnYear {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("BirthyearColumnName");
-			}
-
-			@Override
-			protected int getConfiguredWidth() {
-				return 60;
-			}
-
-			@Override
-			protected String getConfiguredFormat() {
-				// TODO Auto-generated method stub
-				return "yyyy";//super.getConfiguredFormat();
 			}
 		}
 
@@ -211,21 +201,12 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 		}
 
 		@Order(4000)
-		public class Hosp_date_planColumn extends AbstractDateColumn {
+		public class Hosp_date_planColumn extends BaseDateColumnDay {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("Hosp_date_planColumnName");
 			}
 
-			@Override
-			protected int getConfiguredWidth() {
-				return 100;
-			}
-
-			@Override
-			protected String getConfiguredFormat() {
-				return "dd.MM.yyyy";
-			}
 		}
 
 		@Order(5000)
@@ -242,22 +223,12 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 		}
 
 		@Order(6000)
-		public class Hosp_date_confirmColumn extends AbstractDateTimeColumn {
+		public class Hosp_date_confirmColumn extends BaseDateColumnDayTime {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("Hosp_date_confirmColumnName");
 			}
 
-			@Override
-			protected int getConfiguredWidth() {
-				return 120;
-			}
-
-			@Override
-			protected String getConfiguredFormat() {
-				// TODO Auto-generated method stub
-				return "dd.MM.yyyy HH:mm";
-			}
 		}
 
 		@Order(7000)
@@ -300,21 +271,10 @@ public class PAQueueTablePage extends AbstractPageWithTable<PAQueueTable> {
 		}
 
 		@Order(10000)
-		public class Call_dateColumn extends AbstractDateTimeColumn {
+		public class Call_dateColumn extends BaseDateColumnDayTime {
 			@Override
 			protected String getConfiguredHeaderText() {
 				return TEXTS.get("Call_dateColumnName");
-			}
-
-			@Override
-			protected int getConfiguredWidth() {
-				return 120;
-			}
-
-			@Override
-			protected String getConfiguredFormat() {
-				// TODO Auto-generated method stub
-				return "dd.MM.yyyy HH:mm";
 			}
 		}
 

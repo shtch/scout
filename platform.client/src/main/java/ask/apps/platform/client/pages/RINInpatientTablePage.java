@@ -1,11 +1,10 @@
-package ask.apps.platform.client.rininpatient;
+package ask.apps.platform.client.pages;
 
 import java.util.List;
 
 import org.eclipse.scout.rt.client.dto.Data;
 import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
-import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractBooleanColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.controls.ITableControl;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
@@ -14,7 +13,7 @@ import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.TEXTS;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 
-import ask.apps.platform.client.rininpatient.RINInpatientTablePage.RINInpatientTable;
+import ask.apps.platform.client.pages.RINInpatientTablePage.RINInpatientTable;
 import ask.apps.platform.shared.rininpatient.IRINInpatientService;
 import ask.apps.platform.shared.rininpatient.RINInpatientTablePageData;
 
@@ -48,6 +47,51 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 		}
 
 
+		public Show_idColumn getShow_idColumn() {
+			return getColumnSet().getColumnByClass(Show_idColumn.class);
+		}
+
+
+		public Full_nameColumn getFull_nameColumn() {
+			return getColumnSet().getColumnByClass(Full_nameColumn.class);
+		}
+
+
+		public Tempr_mColumn getTempr_mColumn() {
+			return getColumnSet().getColumnByClass(Tempr_mColumn.class);
+		}
+
+
+		public DateinColumn getDateinColumn() {
+			return getColumnSet().getColumnByClass(DateinColumn.class);
+		}
+
+
+		public DescriptionColumn getDescriptionColumn() {
+			return getColumnSet().getColumnByClass(DescriptionColumn.class);
+		}
+
+
+		public Name_wardColumn getName_wardColumn() {
+			return getColumnSet().getColumnByClass(Name_wardColumn.class);
+		}
+
+
+		public DoctorColumn getDoctorColumn() {
+			return getColumnSet().getColumnByClass(DoctorColumn.class);
+		}
+
+
+		public SostColumn getSostColumn() {
+			return getColumnSet().getColumnByClass(SostColumn.class);
+		}
+
+
+		public DataoperationColumn getDataoperationColumn() {
+			return getColumnSet().getColumnByClass(DataoperationColumn.class);
+		}
+
+
 		@Order(50)
 		public class Case_history_idColumn extends AbstractStringColumn {
 			@Override
@@ -71,11 +115,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			}
 		}
 
-		public Show_idColumn getShow_idColumn() {
-			return getColumnSet().getColumnByClass(Show_idColumn.class);
-		}
-
-
 		@Order(100)
 		public class Show_idColumn extends AbstractStringColumn {
 			@Override
@@ -89,11 +128,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			}
 		}
 
-		public Full_nameColumn getFull_nameColumn() {
-			return getColumnSet().getColumnByClass(Full_nameColumn.class);
-		}
-
-
 		@Order(200)
 		public class Full_nameColumn extends AbstractStringColumn {
 			@Override
@@ -106,11 +140,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 				return 250;
 			}
 		}
-
-		public Tempr_mColumn getTempr_mColumn() {
-			return getColumnSet().getColumnByClass(Tempr_mColumn.class);
-		}
-
 
 		@Order(300)
 		public class Tempr_mColumn extends AbstractStringColumn {
@@ -138,11 +167,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			
 		}
 
-		public DateinColumn getDateinColumn() {
-			return getColumnSet().getColumnByClass(DateinColumn.class);
-		}
-
-
 		@Order(400)
 		public class DateinColumn extends AbstractStringColumn {
 			@Override
@@ -155,11 +179,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 				return 50;
 			}
 		}
-
-		public DescriptionColumn getDescriptionColumn() {
-			return getColumnSet().getColumnByClass(DescriptionColumn.class);
-		}
-
 
 		@Order(500)
 		public class DescriptionColumn extends AbstractStringColumn {
@@ -174,11 +193,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			}
 		}
 
-		public Name_wardColumn getName_wardColumn() {
-			return getColumnSet().getColumnByClass(Name_wardColumn.class);
-		}
-
-
 		@Order(600)
 		public class Name_wardColumn extends AbstractStringColumn {
 			@Override
@@ -191,11 +205,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 				return 50;
 			}
 		}
-
-		public DoctorColumn getDoctorColumn() {
-			return getColumnSet().getColumnByClass(DoctorColumn.class);
-		}
-
 
 		@Order(700)
 		public class DoctorColumn extends AbstractStringColumn {
@@ -210,11 +219,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			}
 		}
 
-		public SostColumn getSostColumn() {
-			return getColumnSet().getColumnByClass(SostColumn.class);
-		}
-
-
 		@Order(800)
 		public class SostColumn extends AbstractStringColumn {
 			@Override
@@ -226,11 +230,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 			protected int getConfiguredWidth() {
 				return 50;
 			}
-		}
-
-
-		public DataoperationColumn getDataoperationColumn() {
-			return getColumnSet().getColumnByClass(DataoperationColumn.class);
 		}
 
 
@@ -327,12 +326,6 @@ public class RINInpatientTablePage extends AbstractPageWithTable<RINInpatientTab
 		protected boolean getConfiguredCheckable() {
 			// TODO Auto-generated method stub
 			return super.getConfiguredCheckable();
-		}
-
-		@Override
-		protected Class<? extends AbstractBooleanColumn> getConfiguredCheckableColumn() {
-			// TODO Auto-generated method stub
-			return super.getConfiguredCheckableColumn();
 		}
 
 		@Override
